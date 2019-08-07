@@ -1,1 +1,3 @@
+ALTER TABLE galleries
+  DROP COLUMN IF EXISTS user_id;
 DROP TABLE IF EXISTS users;
