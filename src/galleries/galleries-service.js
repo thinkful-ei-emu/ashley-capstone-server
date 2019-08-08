@@ -23,7 +23,7 @@ const GalleriesService = {
   updateGallery(knex, id, newGalleryFields) {
     return knex('galleries')
     .where({id})
-    .update(newGalelryFields)
+    .update(newGalleryFields)
   }
 }
 

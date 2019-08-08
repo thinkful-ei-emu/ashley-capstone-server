@@ -1,1 +1,9 @@
 {"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 4 was created","level":"info"}
+{"message":"Gallery with id 4 deleted","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 12 was created","level":"info"}
+{"message":"Gallery with id 12 deleted","level":"info"}
+{"message":"artpiece with id 12 not found.","level":"error"}
