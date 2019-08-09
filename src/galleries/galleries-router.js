@@ -4,23 +4,27 @@ const xss = require('xss')
 const galleriesRouter = express.Router();
 const bodyParser = express.json();
 const GalleriesService = require('./galleries-service')
+const { requireAuth } = require('../middleware/jwt-auth');
 
 const serializeGallery = gallery => ({
   id: gallery.id,
-  name: xss(gallery.name), 
+  name: xss(gallery.name),  
 });
 
 galleriesRouter
 .route('/')
+.all(requireAuth)
 .get((req,res, next) => {
-  GalleriesService.getAllGalleries(req.app.get('db')) 
-  .then(galleries => {        
+  
+  GalleriesService.getAllGalleries(req.app.get('db'), req.user.id) 
+  .then(galleries => {    
+     
     return res.json(galleries.map(serializeGallery));
   })
   .catch(next);   
 })
 
-.post(bodyParser, (req, res, next) => {
+.post(requireAuth, bodyParser, (req, res, next) => {
   const {name} = req.body;    
   if (!name)    {     
     logger.error(`gallery 'name' is required`);
@@ -29,6 +33,9 @@ galleriesRouter
     });
   }     
   const newGallery = {name};
+  
+  newGallery.user_id = req.user.id;
+ 
   GalleriesService.insertGallery(
     req.app.get('db'),
     newGallery
@@ -42,6 +49,7 @@ galleriesRouter
 });
 galleriesRouter
 .route('/:gallery_id')
+.all(requireAuth)
 .all((req, res, next) => {
   const { gallery_id } = req.params;
  GalleriesService.getById(req.app.get('db'), gallery_id)    
@@ -69,7 +77,7 @@ galleriesRouter
   )
     .then(() => {
       logger.info(`Gallery with id ${gallery_id} deleted`);
-      res.status(204).end();
+       res.status(204).end();
     })
     .catch(next);
 
@@ -97,5 +105,7 @@ galleriesRouter
     })
     .catch(next);
 });
+
+
 
 module.exports = galleriesRouter;

@@ -1,7 +1,12 @@
 const GalleriesService = {
-  getAllGalleries(knex) {
-    return knex.select('*').from('galleries');
-
+  getAllGalleries(knex, id) {
+    return knex
+    .from('galleries')
+    .select('*')     
+    .where(
+      {'user_id': id}      
+    )
+    
   },
   getById(knex,id) {
     return knex.from('galleries').select('*').where('id', id).first();

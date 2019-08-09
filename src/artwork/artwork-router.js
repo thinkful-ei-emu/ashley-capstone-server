@@ -4,15 +4,14 @@ const xss = require('xss');
 const artworkRouter = express.Router();
 const bodyParser = express.json();
 const ArtworkService = require('../artwork/artwork-service');
-
+const { requireAuth } = require('../middleware/jwt-auth');
 
 const serializeArtpiece = artpiece => ({
   id: artpiece.id,
   title: xss(artpiece.title),
   artpiece_image: artpiece.artpiece_image,
   uploaded: artpiece.uploaded,
-  gallery_id: Number(artpiece.gallery_id),
-  user_id: Number(artpiece.user_id)
+  gallery_id: Number(artpiece.gallery_id),  
 });
 
 artworkRouter
@@ -24,9 +23,9 @@ artworkRouter
       })
       .catch(next);   
   })
-  .post(bodyParser, (req, res, next) => {
+  .post(requireAuth, bodyParser, (req, res, next) => {
     const {title, artpiece_image, gallery_id, user_id} = req.body;
-    const galleryNumCheck = Number(gallery_id);
+    // const galleryNumCheck = Number(gallery_id);
     for(const field of ['title', 'artpiece_image', 'gallery_id']){
       if(!req.body[field]) {       
         logger.error(`'${field}' is required`);
@@ -36,14 +35,15 @@ artworkRouter
       }      
     }
 
-    if(gallery_id && (!Number.isInteger(galleryNumCheck))){      
-      logger.error(`A valid 'gallery_id' is required`);
-      return res.status(400).send({
-        error: {message: `A valid 'gallery_id' is required`}
-      });
-    }      
+    // if(gallery_id && (!Number.isInteger(galleryNumCheck))){      
+    //   logger.error(`A valid 'gallery_id' is required`);
+    //   return res.status(400).send({
+    //     error: {message: `A valid 'gallery_id' is required`}
+    //   });
+    // }      
     
     const newArtpiece = {title, artpiece_image, gallery_id, user_id};
+    newArtpiece.user_id = req.user.id;
     ArtworkService.insertArtpiece(
       req.app.get('db'),
       newArtpiece
@@ -89,7 +89,7 @@ artworkRouter
 
   })
   .patch(bodyParser, (req, res, next) => {
-    const {title, artpiece_image, gallery_id} = req.body;
+    const {title, artpiece_image, gallery_id} = req.body;  
     const artpieceToUpdate = {title, artpiece_image, gallery_id};  
     const numberOfValues = Object.values(artpieceToUpdate).filter(Boolean).length;
     const galleryNumCheck = Number(gallery_id);
@@ -98,7 +98,7 @@ artworkRouter
       logger.error(`Invalid update without required fields`)
       return res.status(400).json({
         error: {
-          message: `Request body must contain either 'title', 'artpiece_image', or 'gallery_id'`
+          message: `Request body must contain either 'title' or 'artpiece_image''`
         }
       });
     }
