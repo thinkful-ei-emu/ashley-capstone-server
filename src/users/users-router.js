@@ -20,15 +20,27 @@ usersRouter
     if (emailError) {
       return res.status(400).json({ error: emailError });
     }
+
+    UsersService.hasUserWithEmail(
+      req.app.get('db'),
+      email,     
+    ).then(hasUserWithEmail => {
+      if (hasUserWithEmail) {
+        return res.status(400).json({ error: `Email already taken` });
+
+      } 
+    })
+  
     UsersService.hasUserWithUserName(
       req.app.get('db'),
-      user_name
+      user_name,     
     )
-      .then(hasUserWithUserName => {
+      .then(hasUserWithUserName => {        
         if (hasUserWithUserName) {
           return res.status(400).json({ error: `Username already taken` });
 
-        }
+        }       
+      
         return UsersService.hashPassword(password)
           .then(hashedPassword => {
             const newUser = {

@@ -4,10 +4,18 @@ const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*
 const UsersService = {
   hasUserWithUserName(db, user_name) {
     return db('users')
-      .where({ user_name })
+      .where({ user_name})
       .first()
       .then(user => !!user);
   },
+  hasUserWithEmail(db, email) {
+    return db('users')
+      .where({ email})
+      .first()
+      .then(user => !!user);
+  },
+
+  
   insertUser(db, newUser) {
     return db
       .insert(newUser)
@@ -27,7 +35,7 @@ const UsersService = {
     }
     if (!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)) {
       return 'Password must contain 1 upper case, lower case, number and special character';
-    }
+    }    
     return null;
   },
   hashPassword(password) {
@@ -37,8 +45,8 @@ const UsersService = {
     if(!email.includes('@')){
       return 'Must provide a valid email'
     }
-
   },
+ 
   serializeUser(user) {
     return {
       id: user.id,
