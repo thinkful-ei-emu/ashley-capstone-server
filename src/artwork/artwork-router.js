@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('../logger');
 const xss = require('xss');
 const artworkRouter = express.Router();
-const bodyParser = express.json();
+const bodyParser = express.json({limit:"3MB"});
 const ArtworkService = require('../artwork/artwork-service');
 const { requireAuth } = require('../middleware/jwt-auth');
 
