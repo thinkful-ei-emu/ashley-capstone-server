@@ -1,17 +1,36 @@
-# Express Boilerplate!
+# L'Artiste Server!
 
-This is a boilerplate project used for starting new projects!
+## Summary
 
-## Set up
+This server was built for [L'Artiste](https://ashleys-artiste-client.now.sh/), a drawing app that allows users to create artwork and add their artwork to designated galleries.
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+If you navigate to the base URL there will be a HTML documentation page displayed.
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+There are two top level endpoints:
+
+/api/galleries
+/api/artwork
+
+
+Both support GET, POST, PATCH and DELETE requests. For  PATCH and DELETE requests you must supply the respective id in the endpoint's path.
+
+For example:
+
+GET /api/galleries
+GET /api/artwork
+POST /api/artwork
+POST /api/galleries
+PATCH /api/galleries/:gallery_id
+PATCH /api/artwork/:artpiece_id
+DELETE /galleries/:gallery_id
+DELETE /artwork/:artpiece_id
+
+## Technologies
+Front-end: React, HTML, CSS, Javascript, testing with Enzyme
+
+API: Node.js, Express, PostgreSQL, Knex, testing with Mocha
+
+## API Documentation
 
 ## Scripts
 

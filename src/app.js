@@ -25,7 +25,24 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello, boilerplate!');
+  res.send(`There are two top level endpoints:
+
+  /api/galleries
+  /api/artwork
+  
+  
+  Both support GET, POST, PATCH and DELETE requests. For  PATCH and DELETE requests you must supply the respective id in the endpoint's path.
+  
+  For example:
+  
+  GET /api/galleries
+  GET /api/artwork
+  POST /api/artwork
+  POST /api/galleries
+  PATCH /api/galleries/:gallery_id
+  PATCH /api/artwork/:artpiece_id
+  DELETE /galleries/:gallery_id
+  DELETE /artwork/:artpiece_id`);
 });
 
 

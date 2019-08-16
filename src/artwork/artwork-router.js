@@ -25,7 +25,7 @@ artworkRouter
   })
   .post(requireAuth, bodyParser, (req, res, next) => {
     const {title, artpiece_image, gallery_id, user_id} = req.body;
-    // const galleryNumCheck = Number(gallery_id);
+    const galleryNumCheck = Number(gallery_id);
     for(const field of ['title', 'artpiece_image', 'gallery_id']){
       if(!req.body[field]) {       
         logger.error(`'${field}' is required`);
@@ -35,12 +35,12 @@ artworkRouter
       }      
     }
 
-    // if(gallery_id && (!Number.isInteger(galleryNumCheck))){      
-    //   logger.error(`A valid 'gallery_id' is required`);
-    //   return res.status(400).send({
-    //     error: {message: `A valid 'gallery_id' is required`}
-    //   });
-    // }      
+    if(gallery_id && (!Number.isInteger(galleryNumCheck))){      
+      logger.error(`A valid 'gallery_id' is required`);
+      return res.status(400).send({
+        error: {message: `A valid 'gallery_id' is required`}
+      });
+    }      
     
     const newArtpiece = {title, artpiece_image, gallery_id, user_id};
     newArtpiece.user_id = req.user.id;
