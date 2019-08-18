@@ -1,0 +1,576 @@
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 4 was created","level":"info"}
+{"message":"Gallery with id 4 deleted","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 12 was created","level":"info"}
+{"message":"Gallery with id 12 deleted","level":"info"}
+{"message":"artpiece with id 12 not found.","level":"error"}
+{"message":"Gallery with id 5 was created","level":"info"}
+{"message":"Gallery with id 6 was created","level":"info"}
+{"message":"Gallery with id 6 deleted","level":"info"}
+{"message":"Gallery with id 6 not found.","level":"error"}
+{"message":"Gallery with id 5 deleted","level":"info"}
+{"message":"Gallery with id 7 was created","level":"info"}
+{"message":"Gallery with id 7 deleted","level":"info"}
+{"message":"Gallery with id 8 was created","level":"info"}
+{"message":"Gallery with id 8 deleted","level":"info"}
+{"message":"Gallery with id 9 was created","level":"info"}
+{"message":"Gallery with id 9 deleted","level":"info"}
+{"message":"Gallery with id 10 was created","level":"info"}
+{"message":"Gallery with id 10 deleted","level":"info"}
+{"message":"Gallery with id 11 was created","level":"info"}
+{"message":"Gallery with id 11 deleted","level":"info"}
+{"message":"Gallery with id 12 was created","level":"info"}
+{"message":"Gallery with id 12 deleted","level":"info"}
+{"message":"Gallery with id 13 was created","level":"info"}
+{"message":"Gallery with id 13 deleted","level":"info"}
+{"message":"Gallery with id 14 was created","level":"info"}
+{"message":"Gallery with id 14 deleted","level":"info"}
+{"message":"Gallery with id 15 was created","level":"info"}
+{"message":"Gallery with id 15 deleted","level":"info"}
+{"message":"Gallery with id 16 was created","level":"info"}
+{"message":"Gallery with id 16 deleted","level":"info"}
+{"message":"Gallery with id 17 was created","level":"info"}
+{"message":"Gallery with id 17 deleted","level":"info"}
+{"message":"Gallery with id 18 was created","level":"info"}
+{"message":"Gallery with id 18 deleted","level":"info"}
+{"message":"Gallery with id 19 was created","level":"info"}
+{"message":"Gallery with id 19 deleted","level":"info"}
+{"message":"Gallery with id 20 was created","level":"info"}
+{"message":"Gallery with id 20 deleted","level":"info"}
+{"message":"Gallery with id 21 was created","level":"info"}
+{"message":"Gallery with id 21 deleted","level":"info"}
+{"message":"Gallery with id 22 was created","level":"info"}
+{"message":"Gallery with id 22 deleted","level":"info"}
+{"message":"Gallery with id 23 was created","level":"info"}
+{"message":"Gallery with id 23 deleted","level":"info"}
+{"message":"Gallery with id 24 was created","level":"info"}
+{"message":"Gallery with id 24 deleted","level":"info"}
+{"message":"Gallery with id 25 was created","level":"info"}
+{"message":"Gallery with id 25 deleted","level":"info"}
+{"message":"Gallery with id 26 was created","level":"info"}
+{"message":"Gallery with id 26 deleted","level":"info"}
+{"message":"Gallery with id 27 was created","level":"info"}
+{"message":"Gallery with id 27 deleted","level":"info"}
+{"message":"Gallery with id 28 was created","level":"info"}
+{"message":"Gallery with id 28 deleted","level":"info"}
+{"message":"artpiece with id 15 was created","level":"info"}
+{"message":"artpiece with id 16 was created","level":"info"}
+{"message":"artpiece with id 17 was created","level":"info"}
+{"message":"artpiece with id 18 was created","level":"info"}
+{"message":"artpiece with id 19 was created","level":"info"}
+{"message":"artpiece with id 20 was created","level":"info"}
+{"message":"artpiece with id 21 was created","level":"info"}
+{"message":"Gallery with id 1 deleted","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"Gallery with id 3 deleted","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 16 not found.","level":"error"}
+{"message":"artpiece with id 17 not found.","level":"error"}
+{"message":"artpiece with id 21 not found.","level":"error"}
+{"message":"Gallery with id 29 was created","level":"info"}
+{"message":"Gallery with id 30 was created","level":"info"}
+{"message":"Gallery with id 31 was created","level":"info"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"Gallery with id 4 deleted","level":"info"}
+{"message":"Gallery with id 3 deleted","level":"info"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 1 deleted","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 5 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 6 was created","level":"info"}
+{"message":"artpiece with id 7 was created","level":"info"}
+{"message":"Gallery with id 4 was created","level":"info"}
+{"message":"Gallery with id 5 was created","level":"info"}
+{"message":"Gallery with id 6 was created","level":"info"}
+{"message":"Gallery with id 7 was created","level":"info"}
+{"message":"Gallery with id 8 was created","level":"info"}
+{"message":"Gallery with id 9 was created","level":"info"}
+{"message":"Gallery with id 10 was created","level":"info"}
+{"message":"Gallery with id 11 was created","level":"info"}
+{"message":"Gallery with id 12 was created","level":"info"}
+{"message":"Gallery with id 13 was created","level":"info"}
+{"message":"Gallery with id 13 deleted","level":"info"}
+{"message":"Gallery with id 12 deleted","level":"info"}
+{"message":"Gallery with id 11 deleted","level":"info"}
+{"message":"Gallery with id 10 deleted","level":"info"}
+{"message":"Gallery with id 9 deleted","level":"info"}
+{"message":"Gallery with id 8 deleted","level":"info"}
+{"message":"Gallery with id 7 deleted","level":"info"}
+{"message":"Gallery with id 6 deleted","level":"info"}
+{"message":"Gallery with id 5 deleted","level":"info"}
+{"message":"Gallery with id 4 deleted","level":"info"}
+{"message":"Gallery with id 14 was created","level":"info"}
+{"message":"Gallery with id 14 deleted","level":"info"}
+{"message":"Gallery with id 15 was created","level":"info"}
+{"message":"Gallery with id 15 deleted","level":"info"}
+{"message":"Gallery with id 16 was created","level":"info"}
+{"message":"Gallery with id 17 was created","level":"info"}
+{"message":"Gallery with id 17 deleted","level":"info"}
+{"message":"Gallery with id 16 deleted","level":"info"}
+{"message":"Gallery with id 18 was created","level":"info"}
+{"message":"Gallery with id 18 deleted","level":"info"}
+{"message":"Gallery with id 19 was created","level":"info"}
+{"message":"Gallery with id 20 was created","level":"info"}
+{"message":"Gallery with id 21 was created","level":"info"}
+{"message":"Gallery with id 22 was created","level":"info"}
+{"message":"Gallery with id 23 was created","level":"info"}
+{"message":"Gallery with id 24 was created","level":"info"}
+{"message":"Gallery with id 25 was created","level":"info"}
+{"message":"Gallery with id 26 was created","level":"info"}
+{"message":"Gallery with id 27 was created","level":"info"}
+{"message":"Gallery with id 28 was created","level":"info"}
+{"message":"Gallery with id 29 was created","level":"info"}
+{"message":"Gallery with id 29 deleted","level":"info"}
+{"message":"Gallery with id 28 deleted","level":"info"}
+{"message":"Gallery with id 27 deleted","level":"info"}
+{"message":"Gallery with id 26 deleted","level":"info"}
+{"message":"Gallery with id 25 deleted","level":"info"}
+{"message":"Gallery with id 24 deleted","level":"info"}
+{"message":"Gallery with id 23 deleted","level":"info"}
+{"message":"Gallery with id 22 deleted","level":"info"}
+{"message":"artpiece with id 10 was created","level":"info"}
+{"message":"Gallery with id 30 was created","level":"info"}
+{"message":"artpiece with id 11 was created","level":"info"}
+{"message":"artpiece with id 12 was created","level":"info"}
+{"message":"Gallery with id 11 deleted","level":"info"}
+{"message":"artpiece with id 13 was created","level":"info"}
+{"message":"Gallery with id 31 was created","level":"info"}
+{"message":"Gallery with id 32 was created","level":"info"}
+{"message":"artpiece with id 14 was created","level":"info"}
+{"message":"Gallery with id 33 was created","level":"info"}
+{"message":"Gallery with id 34 was created","level":"info"}
+{"message":"Gallery with id 34 deleted","level":"info"}
+{"message":"Gallery with id 33 deleted","level":"info"}
+{"message":"Gallery with id 32 deleted","level":"info"}
+{"message":"Gallery with id 35 was created","level":"info"}
+{"message":"Gallery with id 31 deleted","level":"info"}
+{"message":"Gallery with id 36 was created","level":"info"}
+{"message":"Gallery with id 37 was created","level":"info"}
+{"message":"artpiece with id 15 was created","level":"info"}
+{"message":"artpiece with id 16 was created","level":"info"}
+{"message":"Gallery with id 12 deleted","level":"info"}
+{"message":"Gallery with id 16 deleted","level":"info"}
+{"message":"Gallery with id 14 deleted","level":"info"}
+{"message":"Gallery with id 10 deleted","level":"info"}
+{"message":"Gallery with id 13 deleted","level":"info"}
+{"message":"Gallery with id 36 deleted","level":"info"}
+{"message":"Gallery with id 35 deleted","level":"info"}
+{"message":"Gallery with id 21 deleted","level":"info"}
+{"message":"Gallery with id 20 deleted","level":"info"}
+{"message":"Gallery with id 38 was created","level":"info"}
+{"message":"Gallery with id 38 deleted","level":"info"}
+{"message":"Gallery with id 39 was created","level":"info"}
+{"message":"Gallery with id 40 was created","level":"info"}
+{"message":"Gallery with id 41 was created","level":"info"}
+{"message":"Gallery with id 41 deleted","level":"info"}
+{"message":"Gallery with id 42 was created","level":"info"}
+{"message":"Gallery with id 42 deleted","level":"info"}
+{"message":"Gallery with id 43 was created","level":"info"}
+{"message":"Gallery with id 43 deleted","level":"info"}
+{"message":"artpiece with id 17 was created","level":"info"}
+{"message":"Gallery with id 44 was created","level":"info"}
+{"message":"Gallery with id 44 deleted","level":"info"}
+{"message":"artpiece with id 18 was created","level":"info"}
+{"message":"artpiece with id 19 was created","level":"info"}
+{"message":"Gallery with id 17 deleted","level":"info"}
+{"message":"artpiece with id 20 was created","level":"info"}
+{"message":"Gallery with id 45 was created","level":"info"}
+{"message":"Gallery with id 45 deleted","level":"info"}
+{"message":"Gallery with id 46 was created","level":"info"}
+{"message":"Gallery with id 47 was created","level":"info"}
+{"message":"Gallery with id 48 was created","level":"info"}
+{"message":"Gallery with id 49 was created","level":"info"}
+{"message":"Gallery with id 50 was created","level":"info"}
+{"message":"Gallery with id 50 deleted","level":"info"}
+{"message":"Gallery with id 51 was created","level":"info"}
+{"message":"Gallery with id 51 deleted","level":"info"}
+{"message":"Gallery with id 52 was created","level":"info"}
+{"message":"Gallery with id 52 deleted","level":"info"}
+{"message":"Gallery with id 53 was created","level":"info"}
+{"message":"Gallery with id 54 was created","level":"info"}
+{"message":"Gallery with id 54 deleted","level":"info"}
+{"message":"Gallery with id 53 deleted","level":"info"}
+{"message":"Gallery with id 49 deleted","level":"info"}
+{"message":"Gallery with id 48 deleted","level":"info"}
+{"message":"Gallery with id 55 was created","level":"info"}
+{"message":"Gallery with id 56 was created","level":"info"}
+{"message":"Gallery with id 56 deleted","level":"info"}
+{"message":"Gallery with id 57 was created","level":"info"}
+{"message":"artpiece with id 21 was created","level":"info"}
+{"message":"Gallery with id 21 deleted","level":"info"}
+{"message":"Gallery with id 46 deleted","level":"info"}
+{"message":"Gallery with id 47 deleted","level":"info"}
+{"message":"Gallery with id 55 deleted","level":"info"}
+{"message":"Gallery with id 57 deleted","level":"info"}
+{"message":"Gallery with id 58 was created","level":"info"}
+{"message":"Gallery with id 59 was created","level":"info"}
+{"message":"Gallery with id 60 was created","level":"info"}
+{"message":"artpiece with id 22 was created","level":"info"}
+{"message":"Gallery with id 22 deleted","level":"info"}
+{"message":"Gallery with id 60 deleted","level":"info"}
+{"message":"Gallery with id 59 deleted","level":"info"}
+{"message":"Gallery with id 58 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 123 not found.","level":"error"}
+{"message":"Gallery with id 2 deleted","level":"info"}
+{"message":"gallery 'name' is required","level":"error"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"Gallery with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"Gallery with id 1 was created","level":"info"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 1 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"'title' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 2 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"artpiece with id 123 not found.","level":"error"}
+{"message":"Gallery with id 1 deleted","level":"info"}
+{"message":"'title' is required","level":"error"}
+{"message":"'artpiece_image' is required","level":"error"}
+{"message":"'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"A valid 'gallery_id' is required","level":"error"}
+{"message":"artpiece with id 1 was created","level":"info"}
+{"message":"artpiece with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}

@@ -24,13 +24,13 @@ function seedAllTables(db, users, galleries, artwork=[]) {
   return db.transaction(async trx => {
     await seedUsers(trx, users)
     await trx.into('galleries').insert(galleries)
-    // await trx.raw(
-    //   `SELECT setval('galleries_id_seq',?)`,
-    //   [galleries[galleries.length - 1].id],  
-    // )
-    // if(artwork.length > 0){
-    //   await trx.into('artwork').insert(artwork);
-    // }
+    await trx.raw(
+      `SELECT setval('galleries_id_seq',?)`,
+      [galleries[galleries.length - 1].id],  
+    )
+    if(artwork.length > 0){
+      await trx.into('artwork').insert(artwork);
+    }
   })
 }
 
@@ -126,6 +126,7 @@ function makeArtworkArray(users, galleries){
       artpiece_image: 'http://placehold.it/500x500',
       title: "ArtOne",
       gallery_id: galleries[0].id,
+      uploaded: new Date().toISOString(),
       user_id: users[0].id
     },
     {
@@ -133,6 +134,7 @@ function makeArtworkArray(users, galleries){
       artpiece_image: 'http://placehold.it/500x500',
       title: "ArtTwo",
       gallery_id: galleries[1].id,
+      uploaded: new Date().toISOString(),
       user_id: users[1].id
     },
     {
@@ -140,6 +142,7 @@ function makeArtworkArray(users, galleries){
       artpiece_image: 'http://placehold.it/500x500',
       title: "ArtThree",
       gallery_id: galleries[2].id,
+      uploaded: new Date().toISOString(),
       user_id: users[2].id
     },
     {
@@ -147,52 +150,14 @@ function makeArtworkArray(users, galleries){
       artpiece_image: 'http://placehold.it/500x500',
       title: "ArtFour",
       gallery_id: galleries[0].id,
+      uploaded: new Date().toISOString(),
       user_id: users[0].id
     }
   
   ];
 }
 
-// function makeRatingsArray() {
-//   return [
-//     {
-//       id: 1,
-//       rating: 2,      
-//       artwork_id: 1,
-//       user_id: 2,
-    
-//     },
-//     {
-//       id: 2,
-//       rating: 3,     
-//       artwork_id: 1,
-//       user_id: 3,
-     
-//     },
-//     {
-//       id: 3,
-//       rating: 1,     
-//       artwork_id: 2,
-//       user_id: 3,
-      
-//     },
-//     {
-//       id: 4,
-//       rating: 5,     
-//       artwork_id: 3,
-//       user_id: 1,
-      
-//     },
-//     {
-//       id: 5,
-//       rating: 5,     
-//       artwork_id: 4,
-//       user_id: 3,
-      
-//     },
-    
-//   ];
-// }
+
 
 function makeMaliciousGallery() {
   const maliciousGallery = {
@@ -212,6 +177,38 @@ function makeMaliciousGallery() {
   };
 }
 
+function makeMaliciousArtpiece() {
+  const maliciousArtpiece = {
+    id: 911,
+    artpiece_image: 'malicious.png',
+    title: 'Malicious Artpiece <script>alert("xss");</script>',    
+    gallery_id: 1,
+    uploaded: new Date().toISOString(),
+    user_id: 1
+   
+  };
+  const expectedArtpiece = {
+    ...maliciousArtpiece,
+    title: 'Malicious Artpiece &lt;script&gt;alert(\"xss\");&lt;/script&gt;',
+    
+  };
+  return {
+    maliciousArtpiece,
+    expectedArtpiece,
+  };
+}
+
+
+function seedMaliciousArtpiece(db, user, gallery, artpiece) {
+  return seedAllTables(db, [user], [gallery])    
+    .then(() =>
+      db
+        .into('artwork')
+        .insert([artpiece])
+    )
+}
+
+
 function seedMaliciousGallery(db, user, gallery) {
   return seedUsers(db, [user])    
     .then(() =>
@@ -223,7 +220,9 @@ function seedMaliciousGallery(db, user, gallery) {
 
 module.exports = { 
   makeMaliciousGallery,
-  seedMaliciousGallery, 
+  seedMaliciousGallery,
+  makeMaliciousArtpiece,
+  seedMaliciousArtpiece, 
   makeGalleriesArray, 
   seedUsers, 
   makeAuthHeader,
