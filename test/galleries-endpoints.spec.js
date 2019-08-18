@@ -54,12 +54,17 @@ describe.only('Galleries Endpoints', () => {
       )
 
       it('gets the galleries from the store based on user id', () => {      
-        const expectedGalleries = testFixtures.makeExpectedGallery(testGalleries, testUsers, userindex=0)
-
+        
         return supertest(app)
           .get('/api/galleries')
           .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))          
-          .expect(200, expectedGalleries);
+          .expect(200)
+          .expect(res => 
+            db
+              .from('galleries')
+              .select('*')
+              .where({'user_id': res.body.id})
+          )          
       });
     });
 
@@ -115,7 +120,7 @@ describe.only('Galleries Endpoints', () => {
       )
       it('responds with 200 and the specified gallery', () => {      
         const galleryId = 1;
-        const expectedGallery = expectedGalleries[galleryId - 1];
+        const expectedGallery = testGalleries[galleryId - 1];
         return supertest(app)
           .get(`/api/galleries/${galleryId}`)
           .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))                 
@@ -176,10 +181,8 @@ describe.only('Galleries Endpoints', () => {
         testArtwork
       )
     )
-      it('removes the gallery by ID from the store', () => {
-        const filteredTestGalleries = testFixtures.makeExpectedGallery(testGalleries, testUsers, userindex=1)
-        const idToRemove = 2;
-        const expectedGalleries = filteredTestGalleries.filter(gallery => gallery.id !== idToRemove);
+      it('removes the gallery by ID from the store', () => {    
+        const idToRemove = 2;        
         return supertest(app)
           .delete(`/api/galleries/${idToRemove}`)
           .set('Authorization', testFixtures.makeAuthHeader(testUsers[1]))             
@@ -188,7 +191,12 @@ describe.only('Galleries Endpoints', () => {
             supertest(app)
               .get(`/api/galleries`)
               .set('Authorization', testFixtures.makeAuthHeader(testUsers[1]))                
-              .expect(expectedGalleries)
+              .expect(res => 
+                db
+                  .from('galleries')
+                  .select('*')
+                  .where({'user_id': res.body.id})
+              )   
           );
       }); 
     });
@@ -269,4 +277,94 @@ describe.only('Galleries Endpoints', () => {
       });
     });  
   });
+  describe(`PATCH /api/galleries/:id`, () => {
+    context(`Given no galleries`, () => {
+      beforeEach('insert users', () => ( 
+        testFixtures.seedUsers(
+          db,
+          testUsers,        
+        ))
+      )
+      it(`responds with 404`, () => {
+        const galleryId = 123456;
+        return supertest(app)
+          .patch(`/api/galleries/${galleryId}`)
+          .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))             
+          .expect(404, { error: { message: `Gallery Not Found` } });
+      });
+    });
+    context('Given there are galleries in the database', () => {
+      beforeEach('insert galleries', () =>  
+      testFixtures.seedAllTables(
+        db,
+        testUsers,
+        testGalleries,
+        testArtwork
+      )
+    )
+      it('responds with 204 and updates the gallery', () => {
+        const idToUpdate = 1;
+        const updateGallery = {
+          name: 'updated gallery name',          
+        };
+        const expectedGallery = {
+          ...testGalleries[idToUpdate - 1],
+          ...updateGallery
+        };
+        return supertest(app)
+          .patch(`/api/galleries/${idToUpdate}`)  
+          .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))          
+          .send(updateGallery)
+          .expect(204)
+          .then(res =>
+            supertest(app)
+              .get(`/api/galleries/${idToUpdate}`)
+              .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))                
+              .expect(expectedGallery)
+          );
+      });
+
+      it(`responds with 400 when no required fields supplied`, () => {
+        const idToUpdate = 1;
+        return supertest(app)
+          .patch(`/api/galleries/${idToUpdate}`) 
+          .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))           
+          .send({ irrelevantField: 'foo' })
+          .expect(400, {
+            error: {
+              message: `Request body must contain name`
+            }
+          });
+      });
+
+      it(`responds with 204 when updating only a subset of fields`, () => {
+        const idToUpdate = 1;
+        const updateGallery = {
+          name: 'updated gallery name',
+        };
+        const expectedGallery = {
+          ...testGalleries[idToUpdate - 1],
+          ...updateGallery
+        };
+
+        return supertest(app)
+          .patch(`/api/galleries/${idToUpdate}`)  
+          .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))          
+          .send({
+            ...updateGallery,
+            fieldToIgnore: 'should not be in GET response'
+          })
+          .expect(204)
+          .then(res =>
+            supertest(app)
+              .get(`/api/galleries/${idToUpdate}`) 
+              .set('Authorization', testFixtures.makeAuthHeader(testUsers[0]))              
+              .expect(expectedGallery)
+          );
+
+      });
+    });
+
+  }); 
+  
 })
