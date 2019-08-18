@@ -9,8 +9,7 @@ authRouter
   .post('/login', jsonBodyParser, (req, res, next) => {
     const {user_name, password} = req.body.user;
     const loginUser = {user_name, password};
-    console.log('whole body', req.body)
-    console.log('properties', loginUser)
+   
     for(const [key, value] of Object.entries(loginUser))
       if (value == null)
         return res.status(400).json({
@@ -34,10 +33,8 @@ authRouter
                 error: 'Incorrect password'
               });
             }
-            const sub = dbUser.user_name;   
-            console.log(sub)         
-            const payload = {user_id: dbUser.id};
-            console.log('payload', payload)           
+            const sub = dbUser.user_name;                 
+            const payload = {user_id: dbUser.id};                   
             res.send({
               authToken: AuthService.createJwt(sub, payload)
             });
