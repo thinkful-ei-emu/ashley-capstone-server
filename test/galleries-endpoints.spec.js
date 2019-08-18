@@ -2,7 +2,7 @@ const knex = require('knex');
 const testFixtures = require('./test-fixtures');
 const app = require('../src/app');
 
-describe.only('Galleries Endpoints', () => {
+describe('Galleries Endpoints', () => {
   let db;
 
   const {
@@ -243,6 +243,7 @@ describe.only('Galleries Endpoints', () => {
         .expect(res => {
           expect(res.body.name).to.eql(newGallery.name);        
           expect(res.body).to.have.property('id');
+          expect(res.body).to.have.property('user_id');
           expect(res.headers.location).to.eql(`/api/galleries/${res.body.id}`);
         })
         .then(res =>

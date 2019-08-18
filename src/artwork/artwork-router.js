@@ -28,7 +28,7 @@ artworkRouter
     const {title, artpiece_image, gallery_id, user_id} = req.body;
     const galleryNumCheck = Number(gallery_id);
     for(const field of ['title', 'artpiece_image', 'gallery_id']){
-      if(!req.body[field]) {       
+      if(!req.body[field]) {            
         logger.error(`'${field}' is required`);
         return res.status(400).send({
           error: {message: `'${field}' is required`}
@@ -99,7 +99,7 @@ artworkRouter
       logger.error(`Invalid update without required fields`)
       return res.status(400).json({
         error: {
-          message: `Request body must contain either 'title' or 'artpiece_image''`
+          message: `Request body must contain either "title" or "artpiece_image"`
         }
       });
     }
