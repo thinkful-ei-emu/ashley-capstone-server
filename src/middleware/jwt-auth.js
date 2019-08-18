@@ -3,7 +3,6 @@ function requireAuth(req, res, next) {
   const authToken = req.get('Authorization') || '';
   let bearerToken;
   if(!authToken.toLowerCase().startsWith('bearer ')) {
-    console.log('missing bearer')
     return res.status(401).json({error: 'Missing bearer token'})
   }
   else {
@@ -17,12 +16,13 @@ function requireAuth(req, res, next) {
       payload.sub
     )
       .then(user => {
-        console.log(user)
-        if (!user)
-          return res.status(401).json({ error: 'in if statement Unauthorized request' })
+        if (!user){
+          return res.status(401).json({ error: 'Unauthorized request' })
+        }      
 
         req.user = user;
         next();
+        return null; 
       })
       .catch(err => {
         console.error(err);

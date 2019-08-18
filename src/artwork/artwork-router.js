@@ -11,7 +11,8 @@ const serializeArtpiece = artpiece => ({
   title: xss(artpiece.title),
   artpiece_image: artpiece.artpiece_image,
   uploaded: artpiece.uploaded,
-  gallery_id: Number(artpiece.gallery_id),  
+  gallery_id: Number(artpiece.gallery_id),
+  user_id: artpiece.user_id  
 });
 
 artworkRouter

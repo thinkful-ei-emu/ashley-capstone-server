@@ -8,7 +8,8 @@ const { requireAuth } = require('../middleware/jwt-auth');
 
 const serializeGallery = gallery => ({
   id: gallery.id,
-  name: xss(gallery.name),  
+  name: xss(gallery.name),
+  user_id: gallery.user_id  
 });
 
 galleriesRouter
@@ -17,8 +18,8 @@ galleriesRouter
 .get((req,res, next) => {
   
   GalleriesService.getAllGalleries(req.app.get('db'), req.user.id) 
-  .then(galleries => {    
-     
+
+  .then(galleries => {     
     return res.json(galleries.map(serializeGallery));
   })
   .catch(next);   
