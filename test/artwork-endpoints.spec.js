@@ -2,7 +2,7 @@ const knex = require('knex');
 const testFixtures = require('./test-fixtures');
 const app = require('../src/app');
 
-describe.only('Artwork Endpoints', () => {
+describe('Artwork Endpoints', () => {
   let db;
 
   const {
