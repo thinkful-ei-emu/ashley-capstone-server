@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const errorHandler = require('./error-handler');
 const galleriesRouter = require('./galleries/galleries-router')
+const publicGalleriesRouter = require('./public-galleries/public-galleries-router')
 const artworkRouter = require('./artwork/artwork-router')
 const authRouter = require('./auth/auth-router')
 const usersRouter = require('./users/users-router')
@@ -20,6 +21,7 @@ app.use(helmet());
 app.use(errorHandler);
 
 app.use('/api/galleries', galleriesRouter)
+app.use('/api/public/galleries', publicGalleriesRouter)
 app.use('/api/artwork', artworkRouter)
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
