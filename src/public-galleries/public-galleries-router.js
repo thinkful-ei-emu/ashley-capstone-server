@@ -16,7 +16,6 @@ publicGalleriesRouter
 .route('/')
 .all(requireAuth)
 .get((req,res, next) => {
-  
   PublicGalleriesService.getAllGalleries(req.app.get('db')) 
 
   .then(galleries => {     

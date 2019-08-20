@@ -17,8 +17,8 @@ const serializeArtpiece = artpiece => ({
 
 artworkRouter
   .route('/')
-  .get((req, res, next) => {   
-    ArtworkService.getAllArtwork(req.app.get('db')) 
+  .get((req, res, next) => {  
+    ArtworkService.getAllArtwork(req.app.get('db'))   
       .then(artwork => {
         return res.json(artwork.map(serializeArtpiece));
       })

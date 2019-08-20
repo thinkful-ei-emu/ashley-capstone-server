@@ -19,8 +19,10 @@ galleriesRouter
   
   GalleriesService.getAllGalleries(req.app.get('db'), req.user.id) 
 
-  .then(galleries => {     
-    return res.json(galleries.map(serializeGallery));
+  .then(galleries => {    
+    console.log(galleries)
+    return res.json(galleries.map(serializeGallery));   
+    
   })
   .catch(next);   
 })
@@ -43,7 +45,8 @@ galleriesRouter
   )
     .then(gallery => {
       logger.info(`Gallery with id ${gallery.id} was created`);
-      res.status(201).location(`/api/galleries/${gallery.id}`).json(serializeGallery(gallery));
+   
+     res.status(201).location(`/api/galleries/${gallery.id}`).json(serializeGallery(gallery));
     })
     .catch(next);
 
@@ -52,22 +55,22 @@ galleriesRouter
 .route('/:gallery_id')
 .all(requireAuth)
 .all((req, res, next) => {
-  const { gallery_id } = req.params;
+  const { gallery_id } = req.params; 
  GalleriesService.getById(req.app.get('db'), gallery_id)    
-    .then(gallery => {
+    .then(gallery => {       
       if (!gallery) {
         logger.error(`Gallery with id ${gallery_id} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-      
+     
       res.gallery = gallery;
       next();        
     })
     .catch(next);
 })
-.get((req,res, next) => {
+.get((req,res, next) => {  
   res.json(serializeGallery(res.gallery));
 })
 .delete((req, res, next) => {

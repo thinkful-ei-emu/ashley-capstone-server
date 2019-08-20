@@ -6,6 +6,7 @@ const GalleriesService = {
     .where(
       {'user_id': id}      
     )
+    .leftJoin('artwork', 'galleries.id', 'artwork.gallery_id' )
     
   },
   getById(knex,id) {
