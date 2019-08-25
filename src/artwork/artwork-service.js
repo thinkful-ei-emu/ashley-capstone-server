@@ -1,6 +1,11 @@
 const ArtworkService = {
-  getAllArtwork(knex) {
-    return knex.select('*').from('artwork');
+  getAllArtwork(knex, id) {
+    return knex
+    .from('artwork')
+    .select('*')     
+    .where(
+      {'user_id': id}      
+    )
   },
   getById(knex, id) {
     return knex.from('artwork').select('*').where('id', id).first();
