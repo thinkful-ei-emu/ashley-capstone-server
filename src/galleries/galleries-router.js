@@ -9,6 +9,7 @@ const { requireAuth } = require('../middleware/jwt-auth');
 const serializeGallery = gallery => ({
   id: gallery.id,
   name: xss(gallery.name),
+  owner: gallery.owner,
   user_id: gallery.user_id  
 });
 
@@ -28,16 +29,17 @@ galleriesRouter
 })
 
 .post(requireAuth, bodyParser, (req, res, next) => {
-  const {name} = req.body;    
+  const {name, owner, user_id} = req.body;    
   if (!name)    {     
     logger.error(`gallery 'name' is required`);
     return res.status(400).send({
       error: { message: `gallery 'name' is required` }
     });
   }     
-  const newGallery = {name};
+  const newGallery = {name, owner, user_id};
   
   newGallery.user_id = req.user.id;
+  newGallery.owner = req.user.user_name; ;
  
   GalleriesService.insertGallery(
     req.app.get('db'),

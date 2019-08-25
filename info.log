@@ -574,3 +574,9 @@
 {"message":"artpiece with id 1 was created","level":"info"}
 {"message":"artpiece with id 123456 not found.","level":"error"}
 {"message":"Invalid update without required fields","level":"error"}
+{"message":"artpiece with id 5 was created","level":"info"}
+{"message":"artpiece with id 6 was created","level":"info"}
+{"message":"artpiece with id 7 was created","level":"info"}
+{"message":"Gallery with id 4 was created","level":"info"}
+{"message":"Gallery with id 4 deleted","level":"info"}
+{"message":"Gallery with id 5 was created","level":"info"}

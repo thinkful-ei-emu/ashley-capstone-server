@@ -17,6 +17,7 @@ const serializeArtpiece = artpiece => ({
 
 artworkRouter
   .route('/')
+  .all(requireAuth)
   .get((req, res, next) => {  
     ArtworkService.getAllArtwork(req.app.get('db'), req.user.id)   
       .then(artwork => {
@@ -37,7 +38,7 @@ artworkRouter
 
     const newArtpiece = {title, artpiece_image, artist, user_id};
     newArtpiece.user_id = req.user.id;
-    newArtpiece.artist = req.user_name;
+    newArtpiece.artist = req.user.user_name;   
     ArtworkService.insertArtpiece(
       req.app.get('db'),
       newArtpiece

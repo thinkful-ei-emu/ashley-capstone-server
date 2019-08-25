@@ -5,9 +5,7 @@ const GalleriesService = {
     .select('*')     
     .where(
       {'user_id': id}      
-    )
-    // .leftJoin('artwork', 'galleries.id', 'artwork.gallery_id' )
-    
+    )    
   },
   getById(knex,id) {
     return knex.from('galleries').select('*').where('id', id).first();

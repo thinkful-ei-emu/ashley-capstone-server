@@ -7,7 +7,7 @@ const path = require('path');
 usersRouter
   .post('/', jsonBodyParser, (req, res, next) => {
     const { password, user_name, first_name, last_name, email } = req.body;
-    for (const field of ['first_name', 'last_name', 'user_name', 'password', 'email'])
+    for (const field of ['first_name', 'last_name', 'user_name', 'password', 'email', 'collector'])
       if (!req.body[field])
         return res.status(400).json({
           error: `Missing '${field}' in request body`
@@ -48,7 +48,8 @@ usersRouter
               password: hashedPassword,
               first_name,
               last_name,
-              email
+              email,
+              collector
             };
             return UsersService.insertUser(
               req.app.get('db'),
