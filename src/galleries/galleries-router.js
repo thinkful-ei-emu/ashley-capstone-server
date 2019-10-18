@@ -54,7 +54,7 @@ galleriesRouter
 
 });
 galleriesRouter
-.route('/:gallery_id')
+.route('/:gallery-id')
 .all(requireAuth)
 .all((req, res, next) => {
   const { gallery_id } = req.params; 

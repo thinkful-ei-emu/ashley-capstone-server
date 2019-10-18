@@ -25,7 +25,7 @@ artworkRouter
       })
       .catch(next);   
   })
-  .post(requireAuth, bodyParser, (req, res, next) => {
+  .post(requireAuth, bodyParser, (req, res, next) => { 
     const {title, artpiece_image, artist, user_id} = req.body;   
     for(const field of ['title', 'artpiece_image']){
       if(!req.body[field]) {            
@@ -51,7 +51,7 @@ artworkRouter
   });
 
 artworkRouter
-  .route('/:artpiece_id')
+  .route('/:artpiece-id')
   .all((req, res, next) => {
     const { artpiece_id } = req.params;
     ArtworkService.getById(req.app.get('db'), artpiece_id)    

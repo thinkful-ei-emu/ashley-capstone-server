@@ -580,3 +580,4 @@
 {"message":"Gallery with id 4 was created","level":"info"}
 {"message":"Gallery with id 4 deleted","level":"info"}
 {"message":"Gallery with id 5 was created","level":"info"}
+{"message":"artpiece with id 7 was created","level":"info"}
