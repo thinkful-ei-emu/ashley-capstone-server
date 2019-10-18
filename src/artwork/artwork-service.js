@@ -19,6 +19,13 @@ const ArtworkService = {
         return rows[0];
       });
   },
+  getArtist(knex, user_id){
+    return knex
+    .from('artwork')
+    .leftJoin('users', 'users.id', 'artwork.user_id')
+    .select()
+
+  },
   deleteArtpiece(knex, id) {
     return knex('artwork')
       .where({ id })
