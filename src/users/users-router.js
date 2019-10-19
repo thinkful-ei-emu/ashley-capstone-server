@@ -6,12 +6,13 @@ const path = require('path');
 
 usersRouter
   .post('/', jsonBodyParser, (req, res, next) => {
-    const { password, user_name, first_name, last_name, email } = req.body;
+    const { password, user_name, first_name, last_name, email, collector } = req.body;
     for (const field of ['first_name', 'last_name', 'user_name', 'password', 'email'])
-      if (!req.body[field])
-        return res.status(400).json({
-          error: `Missing '${field}' in request body`
-        });
+    if (!req.body[field]){
+      return res.status(400).json({
+        error: `Missing '${field}' in request body`
+      });
+    }        
     const passwordError = UsersService.validatePassword(password);
     const emailError = UsersService.validateEmail(email) 
     if (passwordError) {
@@ -48,7 +49,8 @@ usersRouter
               password: hashedPassword,
               first_name,
               last_name,
-              email
+              email,
+              collector
             };
             return UsersService.insertUser(
               req.app.get('db'),

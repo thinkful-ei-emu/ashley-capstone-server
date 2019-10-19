@@ -3,6 +3,6 @@ CREATE TABLE artwork (
   title TEXT NOT NULL,  
   artpiece_image TEXT NOT NULL,
   uploaded TIMESTAMPTZ DEFAULT now() NOT NULL,
-  gallery_id INTEGER REFERENCES galleries(id) on DELETE CASCADE,
+  artist TEXT NOT NULL,
   user_id INTEGER REFERENCES users(id) on DELETE CASCADE NOT NULL
 )

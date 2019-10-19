@@ -53,7 +53,8 @@ const UsersService = {
       first_name: xss(user.first_name),
       last_name: xss(user.last_name),
       user_name: xss(user.user_name),
-      email: xss(user.email),     
+      email: xss(user.email),
+      collector: user.collector     
     };
   },  
 };

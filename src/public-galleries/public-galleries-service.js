@@ -1,11 +1,9 @@
-const GalleriesService = {
-  getAllGalleries(knex, id) {
+const PublicGalleriesService = {
+  getAllGalleries(knex) {
     return knex
+    .select('*')  
     .from('galleries')
-    .select('*')     
-    .where(
-      {'user_id': id}      
-    )    
+    
   },
   getById(knex,id) {
     return knex.from('galleries').select('*').where('id', id).first();
@@ -31,4 +29,4 @@ const GalleriesService = {
   }
 }
 
-module.exports = GalleriesService;
+module.exports = PublicGalleriesService;

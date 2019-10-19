@@ -1,84 +1,77 @@
 const express = require('express');
 const logger = require('../logger');
 const xss = require('xss')
-const galleriesRouter = express.Router();
+const publicGalleriesRouter = express.Router();
 const bodyParser = express.json();
-const GalleriesService = require('./galleries-service')
+const PublicGalleriesService = require('./public-galleries-service')
 const { requireAuth } = require('../middleware/jwt-auth');
 
 const serializeGallery = gallery => ({
   id: gallery.id,
   name: xss(gallery.name),
-  owner: gallery.owner,
   user_id: gallery.user_id  
 });
 
-galleriesRouter
+publicGalleriesRouter
 .route('/')
 .all(requireAuth)
 .get((req,res, next) => {
-  
-  GalleriesService.getAllGalleries(req.app.get('db'), req.user.id) 
+  PublicGalleriesService.getAllGalleries(req.app.get('db')) 
 
-  .then(galleries => {    
-    console.log(galleries)
-    return res.json(galleries.map(serializeGallery));   
-    
+  .then(galleries => {     
+    return res.json(galleries.map(serializeGallery));
   })
   .catch(next);   
 })
 
 .post(requireAuth, bodyParser, (req, res, next) => {
-  const {name, owner, user_id} = req.body;    
+  const {name} = req.body;    
   if (!name)    {     
     logger.error(`gallery 'name' is required`);
     return res.status(400).send({
       error: { message: `gallery 'name' is required` }
     });
   }     
-  const newGallery = {name, owner, user_id};
+  const newGallery = {name};
   
   newGallery.user_id = req.user.id;
-  newGallery.owner = req.user.user_name; ;
  
-  GalleriesService.insertGallery(
+  PublicGalleriesService.insertGallery(
     req.app.get('db'),
     newGallery
   )
     .then(gallery => {
       logger.info(`Gallery with id ${gallery.id} was created`);
-   
-     res.status(201).location(`/api/galleries/${gallery.id}`).json(serializeGallery(gallery));
+      res.status(201).location(`/api/galleries/${gallery.id}`).json(serializeGallery(gallery));
     })
     .catch(next);
 
 });
-galleriesRouter
+publicGalleriesRouter
 .route('/:gallery_id')
 .all(requireAuth)
 .all((req, res, next) => {
   const { gallery_id } = req.params;
-  console.log(req) 
- GalleriesService.getById(req.app.get('db'), gallery_id)    
-    .then(gallery => {       
+  PublicGalleriesService.getById(req.app.get('db'), gallery_id)    
+    .then(gallery => {
       if (!gallery) {
         logger.error(`Gallery with id ${gallery_id} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-     
+      
       res.gallery = gallery;
       next();        
     })
     .catch(next);
 })
-.get((req,res, next) => {  
+.get((req,res, next) => {
   res.json(serializeGallery(res.gallery));
 })
 .delete((req, res, next) => {
   const {gallery_id} = req.params;
-  GalleriesService.deleteGallery(
+  PublicGalleriesService.deleteGallery(
     req.app.get('db'),
     gallery_id
   )
@@ -102,7 +95,7 @@ galleriesRouter
     });
   }
   
-  GalleriesService.updateGallery(
+  PublicGalleriesService.updateGallery(
     req.app.get('db'),
     req.params.gallery_id,
     galleryToUpdate
@@ -115,4 +108,4 @@ galleriesRouter
 
 
 
-module.exports = galleriesRouter;
+module.exports = publicGalleriesRouter;

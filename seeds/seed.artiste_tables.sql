@@ -2,6 +2,7 @@ BEGIN;
 
 TRUNCATE
 ratings,
+gallery_artwork,
 artwork,
 galleries,
 users
@@ -15,23 +16,22 @@ VALUES
 
 INSERT INTO galleries (name, user_id )
 VALUES
-('GalleryOne', 1),
-('GalleryTwo', 2),
-('GalleryThree', 3);
+('Non-active Dogs', 1),
+('Active Dogs', 2);
 
+INSERT INTO artwork (title, artpiece_image, artist, user_id) VALUES 
+('Smiling dog', 'https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/1506709524-cola-0247.jpg?crop=1.00xw:0.750xh;0,0.226xh&resize=980:*', 'picasso1', 1),
+('Fluffy dog', 'https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/04/Pomeranian_02.jpg', 'picasso1', 1),
+('Running dog', 'https://www.sheknows.com/wp-content/uploads/2018/08/fajkx3pdvvt9ax6btssg.jpeg?w=695&h=391&crop=1', 'monet30', 2);
 
-
-INSERT INTO artwork (title, artpiece_image, gallery_id, user_id)
+INSERT INTO gallery_artwork(gallery_id, artwork_id, public)
 VALUES
-('PuppyOne', 'C:\Users\Ashley\projects\Capstone\ashley-capstone-server\puppy.png', 1, 1),
-('PuppyTwo', 'C:\Users\Ashley\projects\Capstone\ashley-capstone-server\puppy.png', 2, 2),
-('PuppyThree', 'C:\Users\Ashley\projects\Capstone\ashley-capstone-server\puppy.png', 3, 3),
-('PuppyFour', 'C:\Users\Ashley\projects\Capstone\ashley-capstone-server\puppy.png', 1, 1);
+(1, 1, true),
+(1, 2, true),
+(2, 3, false);
 
-INSERT INTO ratings (rating, artwork_id, user_id)
-VALUES
-(2, 1, 2),
-(5, 1, 3),
-(3, 2, 3),
-(1, 3, 1),
-(5, 4, 3);
+-- INSERT INTO ratings (rating, artwork_id, user_id)
+-- VALUES
+-- (2, 1, 1),
+-- (5, 2, 1),
+-- (5, 3, 1),
