@@ -51,9 +51,10 @@ artworkRouter
   });
 
 artworkRouter
-  .route('/:artpiece-id')
+  .route('/:artpiece_id')
   .all((req, res, next) => {
     const { artpiece_id } = req.params;
+    console.log(req.params)
     ArtworkService.getById(req.app.get('db'), artpiece_id)    
       .then(artpiece => {
         if (!artpiece) {

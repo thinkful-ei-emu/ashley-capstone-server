@@ -1,5 +1,6 @@
 const express = require('express');
 const galleryArtworkRouter = express.Router();
+const logger = require('../logger');
 const GalleryArtworkService = require('./galleryArtwork-service')
 const { requireAuth } = require('../middleware/jwt-auth');
 
@@ -18,28 +19,28 @@ galleryArtworkRouter
 .all(requireAuth)
 .get((req,res, next) => {
   GalleryArtworkService.getAllGalleries(req.app.get('db'))
-  .then(galleries => {  
-    console.log(galleries)  
+  .then(galleries => { 
     return res.json(galleries.map(serializeGalleryArtwork));
   })
   .catch(next);   
 })
 
 galleryArtworkRouter
-.route('/:gallery-id')
+.route('/:gallery_id')
 .all(requireAuth)
 .get((req, res, next) => {
   const { gallery_id } = req.params;
-  console.log(gallery_id) 
   GalleryArtworkService.getById(req.app.get('db'), gallery_id)    
-    .then(gallery => {       
-      if (!gallery) {
+    .then(galleryArtwork => {  
+      console.log('gallery in then', galleryArtwork) 
+        
+      if (galleryArtwork.length === 0) {
         logger.error(`Gallery with id ${gallery_id} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-      return res.json(serializeGalleryArtwork(gallery));  
+      return res.json(galleryArtwork.map(serializeGalleryArtwork));  
    
     })
     .catch(next);
@@ -47,34 +48,33 @@ galleryArtworkRouter
 
 
 galleryArtworkRouter
-.route('/:gallery-owner')
+.route('/owner/:gallery_owner')
 .all(requireAuth)
 .get((req, res, next) => {
   const { gallery_owner } = req.params; 
   console.log('owner before', gallery_owner)
   GalleryArtworkService.getByOwner(req.app.get('db'), gallery_owner)    
-    .then(gallery => {  
-      console.log('owner', gallery)     
-      if (!gallery) {
+    .then(galleryArtwork => {      
+      if (galleryArtwork.length === 0) {
         logger.error(`Gallery with owner ${gallery_owner} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-      return res.json(serializeGalleryArtwork(gallery));  
+      return res.json(galleryArtwork.map(serializeGalleryArtwork));  
             
     })
     .catch(next);
 })
 galleryArtworkRouter
-.route('/:gallery-name')
+.route('/name/:gallery_name')
 .all(requireAuth)
 .get((req, res, next) => {
   console.log(req.params)
   const { gallery_name } = req.params; 
   GalleryArtworkService.getByName(req.app.get('db'), gallery_name)    
-    .then(gallery => {       
-      if (!gallery) {
+    .then(galleryArtwork => {       
+      if (galleryArtwork.length === 0) {
         logger.error(`Gallery with name ${gallery_name} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
@@ -86,37 +86,37 @@ galleryArtworkRouter
     .catch(next);
 })
 galleryArtworkRouter
-.route('/:artist')
+.route('/artist/:artist')
 .all(requireAuth)
 .get((req, res, next) => {
   const { artist } = req.params; 
-  GalleryArtworkService.getByName(req.app.get('db'), artist)    
-    .then(gallery => {       
-      if (!gallery) {
+  GalleryArtworkService.getByArtist(req.app.get('db'), artist)    
+    .then(galleryArtwork => {       
+      if (galleryArtwork.length === 0) {
         logger.error(`Gallery with artist ${artist} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-      return res.json(serializeGalleryArtwork(gallery));  
+      return res.json(galleryArtwork.map(serializeGalleryArtwork));  
         
     })
     .catch(next);
 })
 galleryArtworkRouter
-.route('/:artpiece-title')
+.route('/title/:artpiece_title')
 .all(requireAuth)
 .get((req, res, next) => {
   const { artpiece_title } = req.params; 
   GalleryArtworkService.getByTitle(req.app.get('db'), artpiece_title)    
-    .then(gallery => {       
-      if (!gallery) {
-        logger.error(`Gallery with artist ${artpiece-title} not found.`);
+    .then(galleryArtwork => {       
+      if (galleryArtwork.length === 0) {
+        logger.error(`Gallery with artpiece title ${artpiece_title} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-      return res.json(serializeGalleryArtwork(gallery));  
+      return res.json(galleryArtwork.map(serializeGalleryArtwork));  
           
     })
     .catch(next);

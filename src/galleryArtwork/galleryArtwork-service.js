@@ -26,7 +26,7 @@ const GalleryArtworkService = {
     'artwork.artpiece_image AS artpiece_image',
     'artwork.artist AS artpiece_artist',
     'artwork.uploaded AS artpiece_uploaded')
-    .where('gallery_artwork.gallery_id', gallery_id)
+    .where({'gallery_artwork.gallery_id': gallery_id})
   },
   getByOwner(knex, gallery_owner) {
     return knex.from('gallery_artwork')

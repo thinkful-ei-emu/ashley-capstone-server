@@ -54,10 +54,11 @@ galleriesRouter
 
 });
 galleriesRouter
-.route('/:gallery-id')
+.route('/:gallery_id')
 .all(requireAuth)
 .all((req, res, next) => {
-  const { gallery_id } = req.params; 
+  const { gallery_id } = req.params;
+  console.log(req) 
  GalleriesService.getById(req.app.get('db'), gallery_id)    
     .then(gallery => {       
       if (!gallery) {

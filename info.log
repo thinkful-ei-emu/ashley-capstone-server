@@ -581,3 +581,10 @@
 {"message":"Gallery with id 4 deleted","level":"info"}
 {"message":"Gallery with id 5 was created","level":"info"}
 {"message":"artpiece with id 7 was created","level":"info"}
+{"message":"Gallery with id 3 not found.","level":"error"}
+{"message":"Gallery with owner masterCollector not found.","level":"error"}
+{"message":"Gallery with owner masterCollector not found.","level":"error"}
+{"message":"Gallery with owner mastercollector not found.","level":"error"}
+{"message":"Gallery with artist Smiling dogs not found.","level":"error"}
+{"message":"Gallery with artist picasso1 not found.","level":"error"}
+{"message":"Gallery with artist picasso1 not found.","level":"error"}
