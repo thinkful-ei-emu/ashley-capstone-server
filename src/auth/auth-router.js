@@ -25,7 +25,7 @@ authRouter
           return res.status(400).json({
             error: 'Incorrect user name',
           });
-        }        
+        }            
         return AuthService.comparePasswords(loginUser.password, dbUser.password)
           .then(compareMatch => {
             if(!compareMatch){
@@ -33,9 +33,12 @@ authRouter
                 error: 'Incorrect password'
               });
             }
+            const collector_status = dbUser.collector;
             const sub = dbUser.user_name;                 
             const payload = {user_id: dbUser.id};                   
             res.send({
+              userName: sub,
+              isCollector: collector_status,
               authToken: AuthService.createJwt(sub, payload)
             });
           });    
