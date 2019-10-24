@@ -7,10 +7,8 @@ const {requireAuth} = require('../middleware/jwt-auth');
 
 authRouter
   .post('/login', jsonBodyParser, (req, res, next) => {    
-    const {user_name, password, collector} = req.body.user;
-    const loginUser = {user_name, password};
-    
-    let checkCollector = (collector === 'true')? true: false;
+    const {user_name, password} = req.body.user;
+    const loginUser = {user_name, password};  
    
     for(const [key, value] of Object.entries(loginUser))
       if (value == null)
@@ -28,12 +26,7 @@ authRouter
             error: 'Incorrect user name',
           });
         }
-        if(dbUser.collector !== checkCollector){
-          console.log('db collector', dbUser.collector, 'collector:', checkCollector)
-          return res.status(400).json({
-            error: 'Incorrect user role',
-          });
-        }            
+
         return AuthService.comparePasswords(loginUser.password, dbUser.password)
           .then(compareMatch => {
             if(!compareMatch){
