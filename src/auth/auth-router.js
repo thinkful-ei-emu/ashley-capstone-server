@@ -8,7 +8,7 @@ const {requireAuth} = require('../middleware/jwt-auth');
 authRouter
   .post('/login', jsonBodyParser, (req, res, next) => {    
     const {user_name, password} = req.body.user;
-    const loginUser = {user_name, password};
+    const loginUser = {user_name, password};  
    
     for(const [key, value] of Object.entries(loginUser))
       if (value == null)
@@ -25,7 +25,8 @@ authRouter
           return res.status(400).json({
             error: 'Incorrect user name',
           });
-        }            
+        }
+
         return AuthService.comparePasswords(loginUser.password, dbUser.password)
           .then(compareMatch => {
             if(!compareMatch){
@@ -35,10 +36,14 @@ authRouter
             }
             const collector_status = dbUser.collector;
             const sub = dbUser.user_name;                 
-            const payload = {user_id: dbUser.id};                   
-            res.send({
+            const payload = {user_id: dbUser.id, collector: collector_status};  
+            const serializeUser = {
+              id: dbUser.id,
               userName: sub,
-              isCollector: collector_status,
+              collector: collector_status
+            }                 
+            res.send({
+              user: serializeUser,
               authToken: AuthService.createJwt(sub, payload)
             });
           });    
