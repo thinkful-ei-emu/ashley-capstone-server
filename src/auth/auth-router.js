@@ -43,13 +43,13 @@ authRouter
               collector: collector_status
             }                 
             res.send({
-              user: serializeUser,
+              // user: serializeUser,
               authToken: AuthService.createJwt(sub, payload)
             });
           });    
       })
       .catch(next);   
-  });
+  });  
 
 authRouter.post('/refresh', requireAuth, (req, res) => {
   const sub = req.user.user_name;

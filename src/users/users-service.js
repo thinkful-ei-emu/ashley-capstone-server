@@ -13,9 +13,7 @@ const UsersService = {
       .where({ email})
       .first()
       .then(user => !!user);
-  },
-
-  
+  },  
   insertUser(db, newUser) {
     return db
       .insert(newUser)
@@ -56,7 +54,24 @@ const UsersService = {
       email: xss(user.email),
       collector: user.collector     
     };
-  },  
+  },
+  serializeUserName(user){
+    return{
+      id: user.id,      
+      userName: xss(user.userName),     
+      collector: user.collector     
+    }; 
+  }, 
+  getUser(db, id) {
+    return db('users')
+      .select(
+        'id',
+        'user_name As userName',
+        'collector'
+        )
+      .where({ id })
+      .first();
+  }, 
 };
 
 module.exports = UsersService;
