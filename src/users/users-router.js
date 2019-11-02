@@ -3,6 +3,7 @@ const UsersService = require('./users-service');
 const usersRouter = express.Router();
 const jsonBodyParser = express.json();
 const path = require('path');
+const { requireAuth } = require('../middleware/jwt-auth');
 
 usersRouter
   .post('/', jsonBodyParser, (req, res, next) => {
@@ -65,6 +66,17 @@ usersRouter
           });
       })
       .catch(next);
-  });
+});
+
+usersRouter
+  .get('/user', requireAuth, (req, res, next) => {
+    UsersService.getUser(req.app.get('db'), req.user.id)
+  .then(user => {
+    console.log(user)
+    return res.json(UsersService.serializeUserName(user));   
+    
+  })
+  .catch(next);   
+});
 
 module.exports = usersRouter;
