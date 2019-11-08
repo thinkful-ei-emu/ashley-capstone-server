@@ -5,13 +5,14 @@ const GalleryArtworkService = require('./galleryArtwork-service')
 const { requireAuth } = require('../middleware/jwt-auth');
 
 const serializeGalleryArtwork = galleryArtwork => ({  
-  gallery_id: galleryArtwork.gallery_id,
-  gallery_name: galleryArtwork.gallery_name,
-  gallery_owner: galleryArtwork.gallery_owner,
-  artpiece_title: galleryArtwork.artpiece_title,
-  artpiece_artist: galleryArtwork.artpiece_artist,
-  artpiece_uploaded: galleryArtwork.artpiece_uploaded,
-  artpiece_image: galleryArtwork.artpiece_image
+  // galleryId: galleryArtwork.gallery_id,
+  // galleryName: galleryArtwork.gallery_name,
+  // galleryOwner: galleryArtwork.gallery_owner,
+  artpieceId: galleryArtwork.artpiece_id,  
+  artpieceTitle: galleryArtwork.artpiece_title,
+  artpieceArtist: galleryArtwork.artpiece_artist,
+  artpieceUploaded: galleryArtwork.artpiece_uploaded,
+  artpieceImage: galleryArtwork.artpiece_image
 });
 
 galleryArtworkRouter
@@ -19,8 +20,27 @@ galleryArtworkRouter
 .all(requireAuth)
 .get((req,res, next) => {
   GalleryArtworkService.getAllGalleries(req.app.get('db'))
-  .then(galleries => { 
-    return res.json(galleries.map(serializeGalleryArtwork));
+  .then(galleries => {    
+    if (galleries.length === 0) {
+      logger.error(`Galleries Not found.`);
+      return res.status(404).json({
+        error: { message: `Galleries Not Found` }
+      });
+    }
+
+    let publicGalleries = {};
+
+    for(let i=0; i < galleries.length; i++){
+
+      if(publicGalleries[galleries[i].gallery_id]){
+        publicGalleries[galleries[i].gallery_id].artwork = [...publicGalleries[galleries[i].gallery_id].artwork, serializeGalleryArtwork(galleries[i])]
+      }
+      else{
+        publicGalleries[galleries[i].gallery_id] = {galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
+      }
+    }
+    
+    return res.json(publicGalleries);
   })
   .catch(next);   
 })
@@ -32,15 +52,20 @@ galleryArtworkRouter
   const { gallery_id } = req.params;
   GalleryArtworkService.getById(req.app.get('db'), gallery_id)    
     .then(galleryArtwork => {  
-      console.log('gallery in then', galleryArtwork) 
-        
+          
       if (galleryArtwork.length === 0) {
         logger.error(`Gallery with id ${gallery_id} not found.`);
         return res.status(404).json({
           error: { message: `Gallery Not Found` }
         });
       }
-      return res.json(galleryArtwork.map(serializeGalleryArtwork));  
+      
+      return res.json({
+        galleryId: galleryArtwork[0].gallery_id, 
+        galleryName: galleryArtwork[0].gallery_name,
+        galleryOwner: galleryArtwork[0].gallery_owner,
+        artwork: galleryArtwork.map(serializeGalleryArtwork)
+       });  
    
     })
     .catch(next);
@@ -52,7 +77,6 @@ galleryArtworkRouter
 .all(requireAuth)
 .get((req, res, next) => {
   const { gallery_owner } = req.params; 
-  console.log('owner before', gallery_owner)
   GalleryArtworkService.getByOwner(req.app.get('db'), gallery_owner)    
     .then(galleryArtwork => {      
       if (galleryArtwork.length === 0) {
@@ -118,6 +142,59 @@ galleryArtworkRouter
       }
       return res.json(galleryArtwork.map(serializeGalleryArtwork));  
           
+    })
+    .catch(next);
+})
+galleryArtworkRouter
+.route('/private/galleries')
+.all(requireAuth)
+.get((req,res, next) => {
+
+  GalleryArtworkService.getUserGalleries(req.app.get('db'), req.user.id)
+  .then(galleries => {    
+    if (galleries.length === 0) {
+      logger.error(`Galleries Not found.`);
+      return res.status(404).json({
+        error: { message: `Galleries Not Found` }
+      });
+    }
+
+    let privateGalleries = {};
+
+    for(let i=0; i < galleries.length; i++){
+
+      if(privateGalleries[galleries[i].gallery_id]){
+        privateGalleries[galleries[i].gallery_id].artwork = [...privateGalleries[galleries[i].gallery_id].artwork, serializeGalleryArtwork(galleries[i])]
+      }
+      else{
+        privateGalleries[galleries[i].gallery_id] = {galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
+      }
+    }
+    
+    return res.json(privateGalleries);
+  })
+  .catch(next);   
+})
+galleryArtworkRouter
+.route('/private/galleries/:gallery_id')
+.all(requireAuth)
+.get((req, res, next) => {
+  const { gallery_id } = req.params;
+  GalleryArtworkService.getUserGalleryById(req.app.get('db'), gallery_id, req.user.id)    
+    .then(galleryArtwork => {  
+        if (galleryArtwork.length === 0) {
+        logger.error(`Gallery with id ${gallery_id} not found.`);
+        return res.status(404).json({
+          error: { message: `Gallery Not Found` }
+        });
+      }
+      return res.json({
+        galleryId: galleryArtwork[0].gallery_id, 
+        galleryName: galleryArtwork[0].gallery_name,
+        galleryOwner: galleryArtwork[0].gallery_owner,
+        artwork: galleryArtwork.map(serializeGalleryArtwork)
+       });    
+   
     })
     .catch(next);
 })

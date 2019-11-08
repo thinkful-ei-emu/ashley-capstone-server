@@ -10,7 +10,7 @@ const serializeGallery = gallery => ({
   id: gallery.id,
   name: xss(gallery.name),
   owner: gallery.owner,
-  user_id: gallery.user_id  
+  userId: gallery.user_id  
 });
 
 galleriesRouter
@@ -21,7 +21,6 @@ galleriesRouter
   GalleriesService.getAllGalleries(req.app.get('db'), req.user.id) 
 
   .then(galleries => {    
-    console.log(galleries)
     return res.json(galleries.map(serializeGallery));   
     
   })
@@ -58,8 +57,7 @@ galleriesRouter
 .all(requireAuth)
 .all((req, res, next) => {
   const { gallery_id } = req.params;
-  console.log(req) 
- GalleriesService.getById(req.app.get('db'), gallery_id)    
+ GalleriesService.getById(req.app.get('db'), gallery_id, req.user.id)    
     .then(gallery => {       
       if (!gallery) {
         logger.error(`Gallery with id ${gallery_id} not found.`);
@@ -80,7 +78,8 @@ galleriesRouter
   const {gallery_id} = req.params;
   GalleriesService.deleteGallery(
     req.app.get('db'),
-    gallery_id
+    gallery_id,
+    req.user.id
   )
     .then(() => {
       logger.info(`Gallery with id ${gallery_id} deleted`);
@@ -105,7 +104,8 @@ galleriesRouter
   GalleriesService.updateGallery(
     req.app.get('db'),
     req.params.gallery_id,
-    galleryToUpdate
+    galleryToUpdate,
+    req.user.id
   )
     .then(() => {
       res.status(204).end();
