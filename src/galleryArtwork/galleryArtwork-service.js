@@ -3,11 +3,12 @@ const GalleryArtworkService = {
     return knex  
     .from('gallery_artwork')
     .leftJoin('galleries', 'gallery_id', 'galleries.id')
-    .leftJoin('artwork', 'artwork_id', 'artwork.id')
+    .leftJoin('artwork', 'artwork_id', 'artwork.id') 
     .select(
       'gallery_id',
       'galleries.name AS gallery_name',
       'galleries.owner AS gallery_owner', 
+      'artwork.id AS artpiece_id',
       'artwork.title AS artpiece_title',
       'artwork.artpiece_image AS artpiece_image',
       'artwork.artist AS artpiece_artist',
@@ -23,10 +24,43 @@ const GalleryArtworkService = {
     'galleries.name AS gallery_name',
     'galleries.owner AS gallery_owner', 
     'artwork.title AS artpiece_title',
+    'artwork.id AS artpiece_id',
     'artwork.artpiece_image AS artpiece_image',
     'artwork.artist AS artpiece_artist',
     'artwork.uploaded AS artpiece_uploaded')
     .where({'gallery_artwork.gallery_id': gallery_id})
+  },
+  getUserGalleries(knex, user_id) {
+    return knex  
+    .from('galleries')
+    .leftJoin('gallery_artwork', 'galleries.id', 'gallery_artwork.gallery_id')
+    .leftJoin('artwork', 'gallery_artwork.artwork_id', 'artwork.id')
+    .select(
+      'galleries.id AS gallery_id',
+      'galleries.name AS gallery_name',
+      'galleries.owner AS gallery_owner',
+      'artwork.id AS artpiece_id', 
+      'artwork.title AS artpiece_title',
+      'artwork.artpiece_image AS artpiece_image',
+      'artwork.artist AS artpiece_artist',
+      'artwork.uploaded AS artpiece_uploaded')  
+    .where({'galleries.user_id': user_id })
+  },
+  getUserGalleryById(knex, gallery_id, user_id) {
+    return knex
+    .from('galleries')
+    .leftJoin('gallery_artwork', 'galleries.id', 'gallery_artwork.gallery_id')
+    .leftJoin('artwork', 'gallery_artwork.artwork_id', 'artwork.id')
+    .select( 
+    'galleries.id AS gallery_id',
+    'galleries.name AS gallery_name',
+    'galleries.owner AS gallery_owner',
+    'artwork.id AS artpiece_id', 
+    'artwork.title AS artpiece_title',
+    'artwork.artpiece_image AS artpiece_image',
+    'artwork.artist AS artpiece_artist',
+    'artwork.uploaded AS artpiece_uploaded')
+    .where({'gallery_artwork.gallery_id': gallery_id, 'galleries.user_id': user_id})
   },
   getByOwner(knex, gallery_owner) {
     return knex.from('gallery_artwork')
@@ -36,6 +70,7 @@ const GalleryArtworkService = {
     'galleries.name AS gallery_name',
     'galleries.owner AS gallery_owner', 
     'artwork.title AS artpiece_title',
+    'artwork.id AS artpiece_id',
     'artwork.artpiece_image AS artpiece_image',
     'artwork.artist AS artpiece_artist',
     'artwork.uploaded AS artpiece_uploaded')
@@ -47,7 +82,8 @@ const GalleryArtworkService = {
     .leftJoin('artwork', 'artwork_id', 'artwork.id' )
     .select( 'gallery_id',
     'galleries.name AS gallery_name',
-    'galleries.owner AS gallery_owner', 
+    'galleries.owner AS gallery_owner',
+    'artwork.id AS artpiece_id', 
     'artwork.title AS artpiece_title',
     'artwork.artpiece_image AS artpiece_image',
     'artwork.artist AS artpiece_artist',
@@ -60,7 +96,8 @@ const GalleryArtworkService = {
     .leftJoin('artwork', 'artwork_id', 'artwork.id' )
     .select( 'gallery_id',
     'galleries.name AS gallery_name',
-    'galleries.owner AS gallery_owner', 
+    'galleries.owner AS gallery_owner',
+    'artwork.id AS artpiece_id', 
     'artwork.title AS artpiece_title',
     'artwork.artpiece_image AS artpiece_image',
     'artwork.artist AS artpiece_artist',
@@ -73,7 +110,8 @@ const GalleryArtworkService = {
     .leftJoin('artwork', 'artwork_id', 'artwork.id' )
     .select( 'gallery_id',
     'galleries.name AS gallery_name',
-    'galleries.owner AS gallery_owner', 
+    'galleries.owner AS gallery_owner',
+    'artwork.id AS artpiece_id', 
     'artwork.title AS artpiece_title',
     'artwork.artpiece_image AS artpiece_image',
     'artwork.artist AS artpiece_artist',

@@ -7,8 +7,12 @@ const GalleriesService = {
       {'user_id': id}      
     )    
   },
-  getById(knex,id) {
-    return knex.from('galleries').select('*').where('id', id).first();
+  getById(knex, id, user_id) {
+    return knex
+    .from('galleries')
+    .select('*')
+    .where({'id': id, 'user_id': user_id})
+    .first();
   },
   insertGallery(knex, newGallery) {
     return knex
@@ -19,14 +23,14 @@ const GalleriesService = {
       return rows[0];
     });
   },
-  deleteGallery(knex, id) {
+  deleteGallery(knex, id, user_id) {
     return knex('galleries')
-    .where({id})
+    .where({'id': id, 'user_id': user_id})
     .delete();
   },
-  updateGallery(knex, id, newGalleryFields) {
+  updateGallery(knex, id, newGalleryFields, user_id) {
     return knex('galleries')
-    .where({id})
+    .where({'id': id, 'user_id': user_id})
     .update(newGalleryFields)
   }
 }

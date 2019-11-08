@@ -595,3 +595,6 @@
 {"message":"Gallery with id 62 deleted","level":"info"}
 {"message":"Gallery with id 61 deleted","level":"info"}
 >>>>>>> development
+{"message":"Gallery with id 3 was created","level":"info"}
+{"message":"Gallery with id 2 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
