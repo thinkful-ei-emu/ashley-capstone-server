@@ -36,11 +36,12 @@ galleryArtworkRouter
         publicGalleries[galleries[i].gallery_id].artwork = [...publicGalleries[galleries[i].gallery_id].artwork, serializeGalleryArtwork(galleries[i])]
       }
       else{
-        publicGalleries[galleries[i].gallery_id] = {galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
+        publicGalleries[galleries[i].gallery_id] = {galleryId: galleries[i].gallery_id, galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
       }
     }
     
-    return res.json(publicGalleries);
+    
+    return res.json(Object.values(publicGalleries));
   })
   .catch(next);   
 })
@@ -167,11 +168,11 @@ galleryArtworkRouter
         privateGalleries[galleries[i].gallery_id].artwork = [...privateGalleries[galleries[i].gallery_id].artwork, serializeGalleryArtwork(galleries[i])]
       }
       else{
-        privateGalleries[galleries[i].gallery_id] = {galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
+        privateGalleries[galleries[i].gallery_id] = {galleryId: galleries[i].gallery_id, galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
       }
     }
     
-    return res.json(privateGalleries);
+    return res.json(Object.values(privateGalleries));
   })
   .catch(next);   
 })
