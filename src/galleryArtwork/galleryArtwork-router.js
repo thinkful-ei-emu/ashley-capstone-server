@@ -162,13 +162,13 @@ galleryArtworkRouter
 
     let privateGalleries = {};
 
-    for(let i=0; i < galleries.length; i++){
+    for(let i=0; i < galleries.length; i++){      
 
       if(privateGalleries[galleries[i].gallery_id]){
         privateGalleries[galleries[i].gallery_id].artwork = [...privateGalleries[galleries[i].gallery_id].artwork, serializeGalleryArtwork(galleries[i])]
       }
       else{
-        privateGalleries[galleries[i].gallery_id] = {galleryId: galleries[i].gallery_id, galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: [serializeGalleryArtwork(galleries[i])]}
+        privateGalleries[galleries[i].gallery_id] = {galleryId: galleries[i].gallery_id, galleryName: galleries[i].gallery_name, galleryOwner: galleries[i].gallery_owner, artwork: galleries[i].artpiece_id != null ? [serializeGalleryArtwork(galleries[i])] : []}
       }
     }
     
