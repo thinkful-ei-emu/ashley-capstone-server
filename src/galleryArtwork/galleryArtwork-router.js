@@ -12,7 +12,8 @@ const serializeGalleryArtwork = galleryArtwork => ({
   artpieceTitle: galleryArtwork.artpiece_title,
   artpieceArtist: galleryArtwork.artpiece_artist,
   artpieceUploaded: galleryArtwork.artpiece_uploaded,
-  artpieceImage: galleryArtwork.artpiece_image
+  artpieceImage: galleryArtwork.artpiece_image,
+  isPublic: galleryArtwork.isPublic
 });
 
 galleryArtworkRouter

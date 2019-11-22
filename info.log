@@ -598,3 +598,46 @@
 {"message":"Gallery with id 3 was created","level":"info"}
 {"message":"Gallery with id 2 not found.","level":"error"}
 {"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 2 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 1 not found.","level":"error"}
+{"message":"Gallery with id 3 deleted","level":"info"}
+{"message":"Gallery with id 3 not found.","level":"error"}
+{"message":"Galleries Not found.","level":"error"}
+{"message":"Galleries Not found.","level":"error"}
+{"message":"Galleries Not found.","level":"error"}
+{"message":"Galleries Not found.","level":"error"}
+{"message":"Gallery with id 4 was created","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"Gallery with id 5 was created","level":"info"}
+{"message":"Gallery with id 6 was created","level":"info"}
+{"message":"Gallery with id 6 deleted","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"Gallery with id 4 not found.","level":"error"}
+{"message":"Gallery with id 7 was created","level":"info"}
+{"message":"Galleries Not found.","level":"error"}
+{"message":"Gallery with id 8 was created","level":"info"}
+{"message":"Gallery with id 8 deleted","level":"info"}
+{"message":"Gallery with id 9 was created","level":"info"}
+{"message":"Gallery with id 9 deleted","level":"info"}
+{"message":"Gallery with id 10 was created","level":"info"}
+{"message":"Gallery with id 10 deleted","level":"info"}
+{"message":"Gallery with id 11 was created","level":"info"}
+{"message":"Gallery with id 4 not found.","level":"error"}
